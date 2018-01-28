@@ -2,13 +2,11 @@
 
 namespace App\Api\V1\Controllers;
 
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Tymon\JWTAuth\JWTAuth;
 use App\Http\Controllers\Controller;
-use App\Api\V1\Requests\LoginRequest;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Auth;
+use Dingo\Api\Http\Request;
+use JWTAuth;
+use Tymon\JWTAuth\Token;
 
 class RefreshController extends Controller
 {
@@ -17,7 +15,7 @@ class RefreshController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh()
+    public function refresh(Request $request)
     {
         $token = Auth::guard()->refresh();
 

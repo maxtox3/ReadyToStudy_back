@@ -4,6 +4,8 @@ namespace App\Api\V1\Controllers;
 
 use Config;
 use App\User;
+use League\Flysystem\FileExistsException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Tymon\JWTAuth\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Api\V1\Requests\SignUpRequest;
@@ -14,6 +16,12 @@ class SignUpController extends Controller
     public function signUp(SignUpRequest $request, JWTAuth $JWTAuth)
     {
         $user = new User($request->all());
+        $existingUser = User::where('email' ,'=', $request['email'])->first();
+        if($existingUser != null){
+            return response()->json([
+                'error' => 'Пользователь с таким email уже существует!'
+            ], 200);
+        }
         if(!$user->save()) {
             throw new HttpException(500);
         }

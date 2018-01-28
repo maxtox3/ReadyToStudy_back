@@ -3,6 +3,7 @@
 namespace App\Api\V1\Controllers;
 
 use App\Discipline;
+use Illuminate\Http\Request;
 use App\Group;
 use App\User;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -29,7 +30,7 @@ class LoginController extends Controller
         try {
             $token = Auth::guard()->attempt($credentials);
 
-            if(!$token) {
+            if (!$token) {
                 throw new AccessDeniedHttpException();
             }
 
@@ -39,12 +40,13 @@ class LoginController extends Controller
 
         $user = User::where('email', '=', $credentials['email'])->first();
 
-        if($user->is_teacher){
+        if ($user->is_teacher) {
             $disciplines = Discipline::where('teacher_id', '=', $user->id)->get();
             return response()
                 ->json([
                     'status' => 'ok',
                     'token' => $token,
+                    'user' => $user,
                     'disciplines' => $disciplines,
                     'expires_in' => Auth::guard()->factory()->getTTL() * 60
                 ]);
@@ -57,9 +59,17 @@ class LoginController extends Controller
             ->json([
                 'status' => 'ok',
                 'token' => $token,
+                'user' => $user,
                 'group' => $group,
                 'disciplines' => $disciplines,
                 'expires_in' => Auth::guard()->factory()->getTTL() * 60
             ]);
+    }
+
+    public function groups()
+    {
+        $groups = Group::all();
+        return response()
+            ->json(['groups' => $groups]);
     }
 }

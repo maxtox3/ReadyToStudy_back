@@ -28,6 +28,9 @@ class UserController extends Controller
      */
     public function me()
     {
-        return response()->json(Auth::guard()->user());
+        return response()->json([
+            'status' => 'ok',
+            'user' => Auth::guard()->user()
+        ]);
     }
 }

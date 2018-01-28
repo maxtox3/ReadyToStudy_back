@@ -6,7 +6,7 @@ use Dingo\Api\Routing\Router;
 $api = app(Router::class);
 
 $api->version('v1', function (Router $api) {
-    $api->group(['prefix' => 'auth'], function(Router $api) {
+    $api->group(['prefix' => 'auth'], function (Router $api) {
         $api->post('signup', 'App\\Api\\V1\\Controllers\\SignUpController@signUp');
         $api->post('login', 'App\\Api\\V1\\Controllers\\LoginController@login');
 
@@ -16,9 +16,10 @@ $api->version('v1', function (Router $api) {
         $api->post('logout', 'App\\Api\\V1\\Controllers\\LogoutController@logout');
         $api->post('refresh', 'App\\Api\\V1\\Controllers\\RefreshController@refresh');
         $api->get('me', 'App\\Api\\V1\\Controllers\\UserController@me');
+        $api->get('groups', 'App\\Api\\V1\\Controllers\\LoginController@groups');
     });
 
-    $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
+    $api->group(['middleware' => 'jwt.auth'], function (Router $api) {
 
         //----------------/disciplines/----------------//
         $api->get('disciplines', 'App\\Api\\V1\\Controllers\\DisciplineController@all');
@@ -52,9 +53,11 @@ $api->version('v1', function (Router $api) {
         $api->put('task', 'App\\Api\\V1\\Controllers\\TaskController@update');
         $api->delete('task', 'App\\Api\\V1\\Controllers\\TaskController@delete');
 
+        $api->get('refreshToken', 'App\\Api\\V1\\Controllers\\LoginController@refreshToken');
+
     });
 
-    $api->get('hello', function() {
+    $api->get('hello', function () {
         return response()->json([
             'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
         ]);
