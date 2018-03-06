@@ -31,7 +31,7 @@ class DisciplineController extends Controller
             return response()
                 ->json([
                     'status' => 'ok',
-                    'discipline' => $discipline,
+                    'disciplines' => $discipline,
                     'themes' => $themes
                 ]);
         }
@@ -58,7 +58,7 @@ class DisciplineController extends Controller
             return response()
                 ->json([
                     'status' => 'ok',
-                    'discipline' => $discipline,
+                    'disciplines' => $discipline,
                     'themes' => $themes
                 ]);
         }
@@ -80,7 +80,7 @@ class DisciplineController extends Controller
         return response()
             ->json([
                 'status' => 'ok',
-                'discipline' => $resultDiscipline,
+                'disciplines' => $resultDiscipline,
                 'themes' => $themes
             ]);
 

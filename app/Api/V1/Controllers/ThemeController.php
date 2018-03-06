@@ -5,6 +5,7 @@ namespace App\Api\V1\Controllers;
 use App\Discipline;
 use App\Group;
 use App\Http\Controllers\Controller;
+use App\Test;
 use App\Theme;
 use Dingo\Api\Exception\ValidationHttpException;
 use Dingo\Api\Routing\Helpers;
@@ -35,6 +36,10 @@ class ThemeController extends Controller
         $user = Auth::user();
         $theme = Theme::find($id);
         $tests = $theme->test()->get();
+
+        foreach ($tests as $test) {
+            $test->tasks_count = count($test->task()->get());
+        }
 
         if ($user->is_teacher) {
             return response()

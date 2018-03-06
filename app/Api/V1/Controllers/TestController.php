@@ -16,9 +16,7 @@ class TestController extends Controller
 
     public function all(Request $request)
     {
-        $user = Auth::user();
-
-        if($request->query('theme_id') != null) {
+        if ($request->query('theme_id') != null) {
             $theme = Theme::find($request->query('theme_id'));
             $tests = $theme->test()->get();
 
@@ -36,8 +34,6 @@ class TestController extends Controller
 
     public function get($id)
     {
-        $user = Auth::user();
-
         $test = Test::find($id);
         $tasks = $test->task()->get();
 
