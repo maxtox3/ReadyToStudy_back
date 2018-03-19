@@ -181,8 +181,7 @@ return [
 
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Jadjoubran\LaravelAngular\Provider\LaravelServiceProvider::class,
-
+        'Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider',
     ],
 
     /*
@@ -237,6 +236,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PushNotification' => 'Davibennun\LaravelPushNotification\Facades\PushNotification',
     ],
 
 ];

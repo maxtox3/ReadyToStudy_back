@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="../../../../favicon.ico">
 
     <title>Album example for Bootstrap</title>
 
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
@@ -42,9 +42,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="/public/js/popper.min.js"></script>
-<script src="/public/js/bootstrap.min.js"></script>
-<script src="/public/js/holder.min.js"></script>
+<script type="text/javascript" src="{{ asset('/js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/holder.min.js') }}"></script>
 <script>
     Holder.addTheme('thumb', {
         bg: '#55595c',

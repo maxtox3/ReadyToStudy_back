@@ -45,6 +45,7 @@ $api->version('v1', function (Router $api) {
         $api->post('test', 'App\\Api\\V1\\Controllers\\TestController@create');
         $api->put('test', 'App\\Api\\V1\\Controllers\\TestController@update');
         $api->delete('test', 'App\\Api\\V1\\Controllers\\TestController@delete');
+        $api->post('test/finish', 'App\\Api\\V1\\Controllers\\TestController@finish');
 
         //----------------/tasks/----------------//
         $api->get('tasks', 'App\\Api\\V1\\Controllers\\TaskController@all');
