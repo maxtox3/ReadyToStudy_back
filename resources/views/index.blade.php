@@ -10,7 +10,13 @@
     <title>Album example for Bootstrap</title>
 
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/main.6.css') }}">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/landing-page.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
@@ -22,12 +28,12 @@
 <main role="main">
 
     @if($flash = session('message'))
-        <div class="alert alert-success" role="alert"
+        <div class="alert alert-success close fade in" data-dismiss="alert" role="alert"
              style="position: absolute; z-index: 10; bottom: 20px; right: 20px">
             {{ $flash }}
         </div>
     @elseif($flash = session('error'))
-        <div class="alert alert-danger" role="alert" style="position: absolute; z-index: 10; bottom: 20px; right: 20px">
+        <div class="alert alert-danger close fade in" data-dismiss="alert" role="alert" style="position: absolute; z-index: 10; bottom: 20px; right: 20px">
             {{ $flash }}
         </div>
     @endif

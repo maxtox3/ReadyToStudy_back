@@ -58,7 +58,6 @@
                 url: '/themesByName',
                 data: {'disciplineName': str},
                 success: function (data) {
-                    console.log(data);
                     $('.themes').css('visibility', 'visible');
                     $('#selectTheme').html(data);
                 }

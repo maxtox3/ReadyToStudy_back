@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('reset_password/{token}', ['as' => 'password.reset', function($token)
-{
+Route::get('reset_password/{token}', ['as' => 'password.reset', function ($token) {
     // implement your reset password route here!
 }]);
 
@@ -24,21 +23,29 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('register', 'WebController@getRegister');
+Route::get('register', 'AuthWebController@getRegister');
 
-Route::post('login', 'WebController@login');
-Route::post('register', 'WebController@register');
-Route::get('logout', 'WebController@logout');
+Route::post('login', 'AuthWebController@login');
+Route::post('register', 'AuthWebController@register');
+Route::get('logout', 'AuthWebController@logout');
 
-Route::get('import', 'WebController@getImport');
-Route::post('import', 'WebController@import');
-Route::get('themesByName', 'WebController@themesByName');
+Route::get('import', 'ImportWebController@getImport');
+Route::post('import', 'ImportWebController@import');
+Route::get('importGroups', 'ImportWebController@getImportGroups');
+Route::post('importGroups', 'ImportWebController@importGroups');
 
-Route::get('createDiscipline', 'WebController@getCreateDiscipline');
-Route::post('createDiscipline', 'WebController@createDiscipline');
-Route::get('createTheme', 'WebController@getCreateTheme');
-Route::post('createTheme', 'WebController@createTheme');
+Route::get('themesByName', 'CreateEntityWebController@themesByName');
 
-Route::get('importGroups', 'WebController@getImportGroups');
-Route::post('importGroups', 'WebController@importGroups');
+Route::get('createDiscipline', 'CreateEntityWebController@getCreateDiscipline');
+Route::post('createDiscipline', 'CreateEntityWebController@createDiscipline');
+
+Route::get('createTheme', 'CreateEntityWebController@getCreateTheme');
+Route::post('createTheme', 'CreateEntityWebController@createTheme');
+
+Route::get('analytics', 'AnalyticsWebController@getAnalytics');
+Route::get('profile', 'AuthWebController@getProfile');
+
+Route::get('analytics/tests', 'AnalyticsWebController@getTests');
+Route::get('analytics/time', 'AnalyticsWebController@getTime');
+Route::get('analytics/answers', 'AnalyticsWebController@getAnswers');
 

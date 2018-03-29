@@ -231,5 +231,46 @@ class DatabaseSeeder extends Seeder
             'fourth_var' => 'fourth variant',
             'right_var' => 4,
         ]);
+
+
+        DB::table('tasks')->insert([
+            'test_id' => '2',
+            'name' => 'Что такое Angular?',
+            'first_var' => 'first variant',
+            'second_var' => 'second variant',
+            'third_var' => 'third variant',
+            'fourth_var' => 'fourth variant',
+            'right_var' => 1,
+        ]);
+
+        DB::table('tasks')->insert([
+            'test_id' => '2',
+            'name' => 'зачем нужен Angular?',
+            'first_var' => 'first variant',
+            'second_var' => 'second variant',
+            'third_var' => 'third variant',
+            'fourth_var' => 'fourth variant',
+            'right_var' => 2,
+        ]);
+
+        DB::table('tasks')->insert([
+            'test_id' => '2',
+            'name' => 'а он точно нужен, этот Angular?',
+            'first_var' => 'first variant',
+            'second_var' => 'second variant',
+            'third_var' => 'third variant',
+            'fourth_var' => 'fourth variant',
+            'right_var' => 3,
+        ]);
+
+        DB::table('tasks')->insert([
+            'test_id' => '2',
+            'name' => 'не, ну вы точно уверены что нельзя написать все тоже самое с помощью jquery?',
+            'first_var' => 'first variant',
+            'second_var' => 'second variant',
+            'third_var' => 'third variant',
+            'fourth_var' => 'fourth variant',
+            'right_var' => 4,
+        ]);
     }
 }

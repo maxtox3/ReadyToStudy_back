@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFinishedTasksTable extends Migration
+class CreateFinishedTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFinishedTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('finished_tasks', function (Blueprint $table) {
+        Schema::create('finished_tests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
             $table->string('test_id');
@@ -31,6 +31,6 @@ class CreateFinishedTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('finished_tasks');
+        Schema::dropIfExists('finished_tests');
     }
 }
